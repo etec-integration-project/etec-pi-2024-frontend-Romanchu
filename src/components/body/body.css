@@ -1,0 +1,173 @@
+body{
+    background-color: #F4EEE0;
+}
+
+.link {
+    text-decoration: none;
+    color: #F4EEE0;
+}
+
+.item {
+    margin-right: 6rem;
+    padding: 5px 15px;
+    border-radius: 100px;
+}
+
+.item:hover{
+    background-color: #4d3466;
+}
+
+.item:active{
+    transform: scale(0.97);
+}
+
+
+.palabra1{
+    font-family: 'Dosis', sans-serif;
+    color: #393646;
+    position: absolute;
+    top: 250px;
+}
+
+.palabra2{
+    font-family: 'Dosis', sans-serif;
+    color: #393646;
+    position: absolute;
+    top: 30%;
+    left: 48%;
+    font-size: 80px; 
+    opacity: 40%;
+}
+
+.palabra3{
+    font-family: 'Dosis', sans-serif;
+    color: #393646;
+    position: absolute;
+    top: 40%;
+    left: 46%;
+    font-size: 80px;
+    opacity: 40%;
+}
+
+.pad1{
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    max-width: 200px;
+    background-image: url("../../multimedia/pad1.webp");
+}
+
+.pad2{
+    position: absolute;
+    top: 30%;
+    left: 85%;
+    max-width: 200px;
+    background-image: url("../../multimedia/pad2.webp");
+}
+
+.pad3{
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    max-width: 200px;
+    background-image: url("../../multimedia/pad3.jpeg");
+}
+
+.pad4{
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    max-width: 200px;
+    background-image: url("../../multimedia/pad4.webp");
+}
+.comprar{
+    display: flex;
+    justify-content: center;
+    align-items: row;
+}
+
+.boton{
+  color: #F4EEE0;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.boton1{
+    position: absolute;
+    top: 50%;
+    right: 16%;
+    background-color: #4F4557;
+    padding: 10px 30px;
+    border: none;
+    color: #F4EEE0;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1.5em;
+    transition: all 0.2 ease;
+    overflow: hidden;
+}
+
+.boton1:active{
+    transform: scale(0.96);
+}
+
+.boton1:hover{
+    color: #fff;
+}
+
+.boton1 span{
+    position: absolute;
+    background: #07c0ee;
+    transition: .5s;
+}
+
+.boton1 span:nth-child(1){
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: -100%;
+}
+
+.boton1 span:nth-child(2){
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    right: -100%;
+}
+
+.boton1 span:nth-child(3){
+    width: 1px;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+}
+
+.boton1 span:nth-child(4){
+    width: 1px;
+    height: 100%;
+    top: -100%;
+    right: 0;
+}
+
+.boton1:hover span:nth-child(1){
+    left: 0;
+}
+
+.boton1:hover span:nth-child(2){
+    right: 0;
+}
+
+.boton1:hover span:nth-child(3){
+    bottom: 0;
+}
+
+.boton1:hover span:nth-child(4){
+    top: 0;
+}
