@@ -1,114 +1,99 @@
 body {
-    background-color: #F4EEE0;
+    background: linear-gradient(135deg, #F4EEE0 0%, #EBD4D3 100%);
     margin: 0;
     padding: 0;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
-.link {
-    text-decoration: none;
-    color: #F4EEE0;
-}
-
-.item {
-    margin-right: 6rem;
-    padding: 5px 15px;
-    border-radius: 100px;
-}
-
-.item:hover {
-    background-color: #4d3466;
-}
-
-.item:active {
-    transform: scale(0.97);
-}
-
+/* Estilo de los textos principales */
 .palabra1 {
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #393646;
-    position: absolute;
-    top: 40vh; 
-    left: 0.5vw; 
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 10vh;
 }
 
 .palabra2, .palabra3 {
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #393646;
-    font-size: 5vw; 
+    font-size: 5vw;
     opacity: 40%;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .palabra2 {
-    position: absolute;
-    top: 30vh;
-    left: 104vh;
-    transform: translateX(-48%);
+    top: 35vh; /* Ajusta la posición para que no se superponga */
 }
 
 .palabra3 {
-    position: absolute;
-    top: 40vh;
-    left: 104vh;
-    transform: translateX(-46%);
+    top: 45vh; /* Ajusta la posición para que no se superponga */
 }
 
-.pad1{
-    position: absolute;
-    max-width: 15vw; 
-    right: 10vh;
+/* Sección de Productos */
+.productos {
+    padding: 50px 20px; /* Espaciado alrededor del contenido */
+    text-align: center;
+    margin-top: 60vh; /* Espacio suficiente para que esté más abajo en la página */
 }
 
-.pad1 {
-    top: 20vh;
-    left: 70%;
+.productos-titulo {
+    font-family: 'Montserrat', sans-serif;
+    color: #393646;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-.pad2 {
-    top: 30vh;
-    left: 85%;
-}
-
-.pad3 {
-    top: 50vh;
-    left: 65%;
-}
-
-.pad4 {
-    top: 60vh;
-    left: 80%;
-}
-
-.comprar {
+.producto-item {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-.boton {
-    color: #F4EEE0;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.3vw; 
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: Arial, Helvetica, sans-serif;
+.pad1 {
+    width: 15%;
+    margin: 20px 0; /* Ajusta el margen para centrar verticalmente */
+    display: block;
+    border: 5px solid purple; /* Borde morado */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: absolute; /* Asegura que se posicione de forma absoluta en la página */
+    left: 20px; /* Alinea a la izquierda */
+}
+
+.pad1:hover {
+    transform: scale(1.05); /* Escala ligeramente la imagen */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); /* Añade sombra */
+}
+
+/* Estilo para el botón de compra */
+.comprar {
+    position: absolute;
+    left: 20px; /* Alinea a la izquierda */
+    top: calc(20px + 15% + 10px); /* Ajusta la posición debajo de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
 }
 
 .boton1 {
-    position: absolute;
-    top: 53vh;
-    right: 17vw; 
     background-color: #4F4557;
     padding: 10px 30px;
     border: none;
     color: #F4EEE0;
     text-decoration: none;
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 1.5em;
-    transition: all 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
     overflow: hidden;
 }
 
@@ -117,7 +102,9 @@ body {
 }
 
 .boton1:hover {
-    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: #6D597A; /* Color más claro al hacer hover */
 }
 
 .boton1 span {
@@ -168,4 +155,25 @@ body {
 
 .boton1:hover span:nth-child(4) {
     top: 0;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+    .pad1 {
+        width: 50%;
+        margin: 20px auto;
+    }
+
+    .palabra1, .palabra2, .palabra3 {
+        font-size: 4vw;
+        margin: 10vh 0;
+        text-align: center;
+    }
+
+    .boton1 {
+        width: 80%;
+        margin: 20px auto;
+        display: block;
+        text-align: center;
+    }
 }

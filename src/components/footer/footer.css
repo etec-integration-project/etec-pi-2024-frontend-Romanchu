@@ -1,95 +1,63 @@
-
+/* Estilo general del footer */
 .footer {
   background-color: #4F4557;
-  color: #fff;
-  padding: 25px 0;
-  text-align: center;
-  position: absolute;
+  color: #F4EEE0;
+  padding: 20px 0;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  text-align: center;
+  z-index: 1000;
 }
 
+/* Contenedor del footer */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between; /* Distribuye espacio entre los elementos */
   align-items: center;
 }
 
-.footer-logo img {
-  max-width: 50px;
-  position: absolute;
-  bottom: 10px;
-  left: 30px;
-  top: 30px;
+/* Logo del footer */
+.footer-logo {
+  flex: 0.5; /* Permite que el logo esté a la izquierda */
+  text-align: left; /* Alinea el logo a la izquierda */
 }
 
+.footer-logo img {
+  max-width: 80px; /* Tamaño máximo del logo */
+}
+
+/* Iconos de redes sociales */
 .footer-social {
-  position: absolute;
-  bottom: 10px;
-  right: 20px; 
-  display: flex;
-  gap: 10px;
-  top: 40px;
+  flex: 1; /* Permite que los íconos estén a la derecha */
+  text-align: right; /* Alinea los íconos a la derecha */
 }
 
 .footer-social a {
-  color: #fff;
-  font-size: 24px;
-  margin: 0;
+  color: #F4EEE0;
+  margin: 0 10px;
+  font-size: 1.5rem;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-
-.facebook-icon:hover {
-  color: #1877f2; 
+.footer-social a:hover {
+  color: #07c0ee; /* Color al pasar el ratón */
 }
 
-
-.instagram-icon:hover {
-  color: #000000; 
+/* Descripción del footer */
+.footer-description {
+  flex: 2; /* Ajusta el espacio para la descripción */
+  text-align: center;
 }
-
-
-.youtube-icon:hover {
-  color: #ff0000;
-}
-
 
 .footer-description p {
-  font-size: 20px;
-  margin-top: 10px;
-  color: rgb(255, 220, 200);
+  margin: 0;
+  font-size: 1rem;
+  color: #F4EEE0;
 }
-
-@media (max-width: 767px) {
-  .footer-logo img {
-    max-width: 30px;
-  }
-
-  .footer-social a {
-    font-size: 18px;
-  }
-
-  .footer-description p {
-    font-size: 16px;
-  }
-
-  .footer-social {
-    bottom: 10px;
-    right: 30px; 
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-}
-
-@media (min-width: 1024px) {
-}
-
-
 
 
 
