@@ -3,10 +3,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    overflow-x: hidden; 
 }
 
-/* Estilo de los textos principales */
 .palabra1 {
     font-family: 'Montserrat', sans-serif;
     color: #393646;
@@ -27,18 +26,18 @@ body {
 }
 
 .palabra2 {
-    top: 35vh; /* Ajusta la posición para que no se superponga */
+    top: 35vh; 
 }
 
 .palabra3 {
-    top: 45vh; /* Ajusta la posición para que no se superponga */
+    top: 45vh; 
 }
 
-/* Sección de Productos */
+
 .productos {
-    padding: 50px 20px; /* Espaciado alrededor del contenido */
+    padding: 50px 20px; 
     text-align: center;
-    margin-top: 60vh; /* Espacio suficiente para que esté más abajo en la página */
+    margin-top: 50vh; 
 }
 
 .productos-titulo {
@@ -46,39 +45,39 @@ body {
     color: #393646;
     font-size: 2rem;
     margin-bottom: 20px;
+    margin-top: -20vh; 
 }
 
 .producto-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; 
 }
 
 .pad1 {
+    position: relative; 
+    top: 20px; 
+    left: -630px; 
     width: 15%;
-    margin: 20px 0; /* Ajusta el margen para centrar verticalmente */
-    display: block;
-    border: 5px solid purple; /* Borde morado */
+    margin: 20px 0;
+    border: 5px solid purple;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: absolute; /* Asegura que se posicione de forma absoluta en la página */
-    left: 20px; /* Alinea a la izquierda */
 }
 
 .pad1:hover {
-    transform: scale(1.05); /* Escala ligeramente la imagen */
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); /* Añade sombra */
+    transform: scale(1.05); 
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo para el botón de compra */
 .comprar {
-    position: absolute;
-    left: 20px; /* Alinea a la izquierda */
-    top: calc(20px + 15% + 10px); /* Ajusta la posición debajo de la imagen */
+    position: relative; 
+    top: 10px;
+    left: -630px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
 }
 
 .boton1 {
@@ -104,7 +103,7 @@ body {
 .boton1:hover {
     transform: translateY(-3px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    background-color: #6D597A; /* Color más claro al hacer hover */
+    background-color: #6D597A; 
 }
 
 .boton1 span {
@@ -157,7 +156,6 @@ body {
     top: 0;
 }
 
-/* Media Queries para diseño responsivo */
 @media (max-width: 768px) {
     .pad1 {
         width: 50%;
@@ -177,3 +175,4 @@ body {
         text-align: center;
     }
 }
+
