@@ -5,7 +5,7 @@ import paduno from '../../multimedia/pad1.webp';
 
 export default function Body() {
   const handleCompraClick = () => {
-    alert('Producto añadido'); 
+    alert('Producto añadido');
   };
 
   return (
@@ -15,7 +15,20 @@ export default function Body() {
         <h1 className="palabra2">BE</h1>
         <h1 className="palabra3">MUST</h1>
       </div>
-      
+
+      {/* Sección de botones de navegación */}
+      <div className="nav-buttons">
+        <Link to="/login" className="link-nav">
+          <button className="btn-nav">Login</button>
+        </Link>
+        <Link to="/personalizacion" className="link-nav">
+          <button className="btn-nav">Personalización</button>
+        </Link>
+        <Link to="/register" className="link-nav">
+          <button className="btn-nav">Register</button>
+        </Link>
+      </div>
+
       {/* Sección de Productos */}
       <section className="productos">
         <h2 className="productos-titulo">Productos</h2>

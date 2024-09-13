@@ -156,6 +156,34 @@ body {
     top: 0;
 }
 
+.nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-nav {
+    background-color: #4F4557;
+    color: #F4EEE0;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-nav:hover {
+    background-color: #6D597A;
+    transform: translateY(-3px);
+}
+
+.link-nav {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media (max-width: 768px) {
     .pad1 {
         width: 50%;
@@ -174,5 +202,11 @@ body {
         display: block;
         text-align: center;
     }
+
+    .btn-nav {
+        width: 100%;
+        padding: 10px;
+    }
 }
+
 
