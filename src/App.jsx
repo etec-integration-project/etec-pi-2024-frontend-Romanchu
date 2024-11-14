@@ -8,10 +8,11 @@ import Footer from './components/footer/footer';
 import Personalizacion from './components/personalizacion/Personalizacion';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './components/contexts/CartContext'; 
 
 function App() {
   return (
-    <>
+    <CartProvider> {/* Envuelve toda la aplicación dentro de CartProvider */}
       <Router>
         <Routes>
           <Route 
@@ -57,15 +58,13 @@ function App() {
             <>
               <Header />
               <Personalizacion />
-              <Footer />
             </>
             }
           />
         </Routes>
       </Router>
-    </>
+    </CartProvider>
   );
 }
 
 export default App;
-

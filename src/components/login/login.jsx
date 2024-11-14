@@ -1,29 +1,18 @@
 import React, { useState } from 'react';
 import './login.css';
-import ReCAPTCHA from 'react-google-recaptcha';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const [captchaValue, setCaptchaValue] = useState(null);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (!captchaValue) {
-      setMensaje('Por favor, verifica que no eres un robot.');
-      return;
-    }
     if (email === 'correo@example.com' && password === 'contraseña') {
       setMensaje('Iniciaste sesión con éxito.');
     } else {
       setMensaje('Fallo en el inicio de sesión.');
     }
-  };
-
-  const onCaptchaChange = (value) => {
-    setCaptchaValue(value);
-    console.log("Captcha value:", value);
   };
 
   return (
@@ -50,12 +39,6 @@ function Login() {
             required
           />
         </div>
-        <div className="captcha-container">
-          <ReCAPTCHA
-            sitekey="6LdHx_gpAAAAAGuNdK3WwANghaXs3mv9jtYVHnq3"
-            onChange={onCaptchaChange}
-          />
-        </div>
         <button className="boton3" type="submit">Iniciar Sesión</button>
       </form>
       {mensaje && <div className="mensaje">{mensaje}</div>}
@@ -64,5 +47,6 @@ function Login() {
 }
 
 export default Login;
+
 
 

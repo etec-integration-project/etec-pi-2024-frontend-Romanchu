@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './registro.css';
-import ReCAPTCHA from 'react-google-recaptcha';
 
 function Registro() {
   const [usuario, setUsuario] = useState('');
@@ -10,15 +9,9 @@ function Registro() {
   const [correoElectronico, setCorreoElectronico] = useState('');
   const [registroCompletado, setRegistroCompletado] = useState(false);
   const [mostrarTic, setMostrarTic] = useState(false);
-  const [captchaValue, setCaptchaValue] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!captchaValue) {
-      alert('Por favor, verifica que no eres un robot.');
-      return;
-    }
 
     if (contrasena !== repetirContrasena) {
       alert('Las contraseñas deben coincidir');
@@ -30,7 +23,6 @@ function Registro() {
         usuario,
         contrasena,
         correoElectronico,
-        captchaValue,
       });
 
       setRegistroCompletado(true);
@@ -43,11 +35,6 @@ function Registro() {
       alert('Error al registrarse');
       console.log('Error al registrarse', error);
     }
-  };
-
-  const onCaptchaChange = (value) => {
-    setCaptchaValue(value);
-    console.log("Captcha value:", value);
   };
 
   return (
@@ -94,12 +81,6 @@ function Registro() {
             required
           />
         </div>
-        <div className="captcha-container">
-          <ReCAPTCHA
-            sitekey="6LdHx_gpAAAAAGuNdK3WwANghaXs3mv9jtYVHnq3"
-            onChange={onCaptchaChange}
-          />
-        </div>
         <button className="boton2" type="submit">
           Enviar
         </button>
@@ -118,5 +99,3 @@ function Registro() {
 }
 
 export default Registro;
-
-
