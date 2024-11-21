@@ -1,4 +1,3 @@
-// Body.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import './body.css';
@@ -9,9 +8,11 @@ export default function Body() {
 
   const handleCompraClick = () => {
     const producto = {
+      id: 1, // ID único para identificar el producto
       name: 'Pad Olas',
       price: 3000,
       imagen: paduno,
+      quantity: 1, // Se añade la cantidad inicial
     };
     addItem(producto);
     alert('Producto añadido al carrito');
@@ -37,3 +38,4 @@ export default function Body() {
     </div>
   );
 }
+

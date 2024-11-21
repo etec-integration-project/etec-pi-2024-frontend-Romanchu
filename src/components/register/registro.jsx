@@ -9,31 +9,47 @@ function Registro() {
   const [correoElectronico, setCorreoElectronico] = useState('');
   const [registroCompletado, setRegistroCompletado] = useState(false);
   const [mostrarTic, setMostrarTic] = useState(false);
+  const [errorMensaje, setErrorMensaje] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (contrasena !== repetirContrasena) {
-      alert('Las contraseñas deben coincidir');
+      setErrorMensaje('Las contraseñas deben coincidir');
       return;
     }
 
     try {
-      await axios.post('http://localhost:8080/registro', {
+      const response = await axios.post('http://localhost:5000/api/usuarios/registro', {
         usuario,
-        contrasena,
         correoElectronico,
+        contrasena,
       });
 
-      setRegistroCompletado(true);
-      setMostrarTic(true);
+      if (response.status === 201) {
+        setRegistroCompletado(true);
+        setMostrarTic(true);
+        setErrorMensaje(''); // Limpiar cualquier error previo
 
-      setTimeout(() => {
-        setMostrarTic(false);
-      }, 2000);
+        setTimeout(() => {
+          setMostrarTic(false);
+        }, 2000);
+
+        // Limpiar el formulario
+        setUsuario('');
+        setCorreoElectronico('');
+        setContrasena('');
+        setRepetirContrasena('');
+      }
     } catch (error) {
-      alert('Error al registrarse');
-      console.log('Error al registrarse', error);
+      console.error('Error al registrarse:', error);
+
+      // Mostrar mensaje de error basado en la respuesta
+      if (error.response && error.response.data && error.response.data.error) {
+        setErrorMensaje(error.response.data.error); // Mensaje del servidor
+      } else {
+        setErrorMensaje('Error al conectar con el servidor. Inténtalo de nuevo.');
+      }
     }
   };
 
@@ -41,6 +57,7 @@ function Registro() {
     <div className="registro-container">
       <form onSubmit={handleSubmit} className="formStyle">
         <h2>Registro</h2>
+        {errorMensaje && <p className="error-mensaje">{errorMensaje}</p>}
         <div className="campo">
           <label htmlFor="usuario">Usuario</label>
           <input

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './login.css';
 
 function Login() {
@@ -6,12 +7,23 @@ function Login() {
   const [password, setPassword] = useState('');
   const [mensaje, setMensaje] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email === 'correo@example.com' && password === 'contraseña') {
-      setMensaje('Iniciaste sesión con éxito.');
-    } else {
-      setMensaje('Fallo en el inicio de sesión.');
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/usuarios/login', {
+        email,
+        password,
+      });
+
+      if (response.data.success) {
+        setMensaje(response.data.mensaje);
+      } else {
+        setMensaje('Credenciales incorrectas');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      setMensaje('Error al conectar con el servidor');
     }
   };
 
@@ -47,6 +59,3 @@ function Login() {
 }
 
 export default Login;
-
-
-

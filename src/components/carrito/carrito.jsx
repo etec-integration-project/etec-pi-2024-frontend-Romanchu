@@ -1,13 +1,38 @@
-// Carrito.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import './carrito.css';
 
 function Carrito() {
-  const { items, removeItem } = useContext(CartContext);
+  const { items, removeItem, getTotal, clearCart } = useContext(CartContext);
 
-  const pagar = () => {
-    alert('Pago completado. Gracias por su compra.');
+  const realizarPedido = async () => {
+    if (items.length === 0) {
+      alert('El carrito está vacío. Agrega productos antes de realizar el pedido.');
+      return;
+    }
+
+    try {
+      // Realizar solicitud al backend
+      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api/pedidos`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productos: items }), // Envía los productos del carrito
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(`¡Pedido realizado con éxito! ID del pedido: ${data.pedidoId}`);
+        clearCart(); // Vacía el carrito después de realizar el pedido
+      } else {
+        const errorData = await response.json();
+        alert(`Error al realizar el pedido: ${errorData.error || 'Error desconocido'}`);
+      }
+    } catch (error) {
+      console.error('Error al conectar con el servidor:', error);
+      alert('Error de conexión. No se pudo realizar el pedido.');
+    }
   };
 
   return (
@@ -19,13 +44,22 @@ function Carrito() {
         ) : (
           items.map((item, index) => (
             <li className="lista1" key={index}>
-              {item.name} - ${item.price.toFixed(2)}
+              <div>
+                <strong>{item.name}</strong> - ${item.price.toFixed(2)} x {item.quantity}
+              </div>
               <button className="boton4" onClick={() => removeItem(index)}>Eliminar</button>
             </li>
           ))
         )}
       </ul>
-      <button className="boton4" onClick={pagar}>Ir a Pagar</button>
+      {items.length > 0 && (
+        <div className="carrito-total">
+          <h3>Total: ${getTotal().toFixed(2)}</h3> {/* Muestra el total */}
+          <button className="boton4" onClick={realizarPedido}>
+            Ir a Pagar
+          </button>
+        </div>
+      )}
     </div>
   );
 }
