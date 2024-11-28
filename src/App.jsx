@@ -2,7 +2,7 @@ import './App.css';
 import Header from './components/header/header.jsx';
 import Body from './components/body/body.jsx';
 import Registro from './components/register/registro';
-import Contacto from './components/contacto/Contacto.jsx';
+import Contacto from './components/contacto/Contacto';
 import Carrito from './components/carrito/carrito';
 import Footer from './components/footer/footer';
 import Personalizacion from './components/personalizacion/Personalizacion';
