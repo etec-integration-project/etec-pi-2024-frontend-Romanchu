@@ -12,7 +12,7 @@ function Contacto() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/contacto', {
+      const response = await axios.post('/api/contacto', {
         nombre,
         email,
         mensaje,

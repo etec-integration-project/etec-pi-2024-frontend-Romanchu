@@ -18,6 +18,15 @@ export function CartProvider({ children }) {
     });
   };
 
+  // Aumentar la cantidad de un producto en el carrito
+  const increaseItemQuantity = (index) => {
+    setItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      updatedItems[index].quantity += 1;
+      return updatedItems;
+    });
+  };
+
   // Eliminar un producto del carrito por índice
   const removeItem = (index) => {
     setItems((prevItems) => prevItems.filter((_, i) => i !== index));
@@ -35,7 +44,7 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem, clearCart, getTotal }}
+      value={{ items, addItem, removeItem, clearCart, getTotal, increaseItemQuantity }}
     >
       {children}
     </CartContext.Provider>
