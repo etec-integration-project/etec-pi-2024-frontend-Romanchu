@@ -7,16 +7,18 @@ function Contacto() {
   const [email, setEmail] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [respuesta, setRespuesta] = useState('');
+  
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    mensaje: '',
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/contacto', {
-        nombre,
-        email,
-        mensaje,
-      });
+      const response = await axios.post('/api/contacto', formData);
 
       if (response.data.success) {
         setRespuesta('Gracias por tu mensaje, te responderemos pronto.');
