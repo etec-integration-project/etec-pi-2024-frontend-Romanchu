@@ -14,11 +14,13 @@ RUN npm install
 # Copiar el resto del código al contenedor
 COPY . .
 
+RUN npm install -g serve
+
 # Construir el proyecto para producción
 RUN npm run build
 
 # Exponer el puerto del servidor
-EXPOSE 80
+EXPOSE 3000
 
 # Nginx ya incluye un comando CMD por defecto, no necesitas añadir uno
-CMD [ "npm","start" ]
+CMD ["serve", "-s", "build"]
