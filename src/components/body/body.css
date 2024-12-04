@@ -1,0 +1,212 @@
+body {
+    background: linear-gradient(135deg, #F4EEE0 0%, #EBD4D3 100%);
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden; 
+}
+
+.palabra1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #393646;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.palabra2, .palabra3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #393646;
+    font-size: 5vw;
+    opacity: 40%;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.palabra2 {
+    top: 35vh; 
+}
+
+.palabra3 {
+    top: 45vh; 
+}
+
+
+.productos {
+    padding: 50px 20px; 
+    text-align: center;
+    margin-top: 50vh; 
+}
+
+.productos-titulo {
+    font-family: 'Montserrat', sans-serif;
+    color: #393646;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: -20vh; 
+}
+
+.producto-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+}
+
+.pad1 {
+    position: relative; 
+    top: 20px; 
+    left: -630px; 
+    width: 15%;
+    margin: 20px 0;
+    border: 5px solid purple;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pad1:hover {
+    transform: scale(1.05); 
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.comprar {
+    position: relative; 
+    top: 10px;
+    left: -630px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton1 {
+    background-color: #4F4557;
+    padding: 10px 30px;
+    border: none;
+    color: #F4EEE0;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.boton1:active {
+    transform: scale(0.96);
+}
+
+.boton1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: #6D597A; 
+}
+
+.boton1 span {
+    position: absolute;
+    background: #07c0ee;
+    transition: 0.5s;
+}
+
+.boton1 span:nth-child(1) {
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: -100%;
+}
+
+.boton1 span:nth-child(2) {
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    right: -100%;
+}
+
+.boton1 span:nth-child(3) {
+    width: 1px;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+}
+
+.boton1 span:nth-child(4) {
+    width: 1px;
+    height: 100%;
+    top: -100%;
+    right: 0;
+}
+
+.boton1:hover span:nth-child(1) {
+    left: 0;
+}
+
+.boton1:hover span:nth-child(2) {
+    right: 0;
+}
+
+.boton1:hover span:nth-child(3) {
+    bottom: 0;
+}
+
+.boton1:hover span:nth-child(4) {
+    top: 0;
+}
+
+.nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-nav {
+    background-color: #4F4557;
+    color: #F4EEE0;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-nav:hover {
+    background-color: #6D597A;
+    transform: translateY(-3px);
+}
+
+.link-nav {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .pad1 {
+        width: 50%;
+        margin: 20px auto;
+    }
+
+    .palabra1, .palabra2, .palabra3 {
+        font-size: 4vw;
+        margin: 10vh 0;
+        text-align: center;
+    }
+
+    .boton1 {
+        width: 80%;
+        margin: 20px auto;
+        display: block;
+        text-align: center;
+    }
+
+    .btn-nav {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+
